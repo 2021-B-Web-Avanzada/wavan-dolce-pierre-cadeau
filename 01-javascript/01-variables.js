@@ -171,7 +171,7 @@ console.log(edadDolce); //23
 let peter = {
     nombre: "peter",
 }
-let peterca = Object.assign({},peter);
+let peterca = Object.assign({}, peter);
 console.log(peter);
 console.log(peterca);
 peterca.nombre = "peterca";
@@ -182,8 +182,8 @@ delete peterca.nombre;
 console.log(peter);
 console.log(peterca);
 
-let arregloNumeros = [1,2,3,4,5];
-let arregloClonado = Object.assign([],arregloNumeros);
+let arregloNumeros = [1, 2, 3, 4, 5];
+let arregloClonado = Object.assign([], arregloNumeros);
 console.log(arregloNumeros);
 console.log(arregloClonado);
 arregloNumeros[0] = 200;
