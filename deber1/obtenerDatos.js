@@ -582,6 +582,8 @@ module.exports = {
     buscarAutor,
     buscarLibrosAutor,
     getAutors,
+    saveAutorBookEdited,
+    saveAutorEdited,
     deleteDataAutor,
     deleteBookAutor,
     saveBook,

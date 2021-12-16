@@ -146,15 +146,79 @@ router.post('/libros', (req, res) => {
 })
 
 
+//saveAutorBookEdited
+//saveAutorEdited
 
-
-router.put('/:ideParent&:idChildren', (req, res) => {
-    console.log(req.params);
-    res.json(
-        {
-            "error": "Error al buscar autor"
+router.put('/autor/:autorName', (req, res) => {
+    try {
+        let nombre = req.body.nombre;
+        let direccion = req.body.direccion;
+        let nacionalidad = req.body.nacionalidad;
+        if (nombre !== undefined && direccion !== undefined && nacionalidad !== undefined) {
+            let newAutor = {
+                direccion: direccion,
+                nacionalidad: nacionalidad,
+            };
+            let oldAutor = dataModule.buscarAutor(nombre);
+            const autorCompleto = {
+                ...oldAutor,
+                ...newAutor
+            }
+            dataModule.saveAutorEdited(autorCompleto);
+            res.json({
+                "message": "Autor actualizado con exito"
+            });
+        } else {
+            res.json({
+                "error": "Error al actualizar el autor"
+            });
         }
-    );
+    } catch (e) {
+        res.json(
+            {
+                "error": "Error al actualizar el autor"
+            }
+        );
+    }
+})
+
+router.put('/libros/:autorName&:title', (req, res) => {
+
+    try {
+
+        let nombre = req.body.nombre;
+
+        let titulo = req.body.titulo;
+        let leido = req.body.leido;
+        let precio = req.body.precio;
+
+        if (nombre !== undefined && titulo !== undefined && leido !== undefined && precio !== undefined) {
+            let newBook = {
+                leido: leido,
+                precio: precio,
+            };
+            const libro = buscarLibrosAutor(nombre, titulo);
+            const libroCompleto = {
+                ...libro,
+                ...newBook
+            }
+            saveAutorBookEdited(autorName, libroCompleto);
+
+            res.json({
+                "message": "Libro actualizado con exito"
+            });
+        } else {
+            res.json({
+                "error": "Error al actualizar el libro"
+            });
+        }
+    } catch (e) {
+        res.json(
+            {
+                "error": "Error al actualizar el libro"
+            }
+        );
+    }
 })
 
 
