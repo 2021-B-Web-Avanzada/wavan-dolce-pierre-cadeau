@@ -96,6 +96,8 @@ let autor2 = {
     libros: [libro1, libro3, libro5],
 }
 
+let autors = [autor, autor2];
+
 //console.log(autor.libros);
 
 const fs = require('fs');
