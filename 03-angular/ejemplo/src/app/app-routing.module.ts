@@ -22,10 +22,10 @@ const routes: Routes = [
     path: 'login',
     component: RutaLoginComponent
   },
-
   {
-path:'lazy-inventario',
-loadChildren:()=>import('./modulos/modulo-inventario/modulo-inventario.module').then(m=>m.ModuloInventarioModule)
+    path: 'lazy-inventario',
+    loadChildren: () => import('./modulos/modulo-inventario/modulo-inventario.module')
+      .then(m => m.ModuloInventarioModule)
   },
   /*{
     path: 'app',

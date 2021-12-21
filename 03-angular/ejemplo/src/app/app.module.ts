@@ -14,6 +14,7 @@ import { AuthService } from 'src/servicios/auth/auth.service';
 import { EstaLogeadoGuard } from 'src/servicios/auth/esta-logeado.guard';
 import { EsAdministradorGuard } from 'src/servicios/auth/es-administrador.guard';
 import { RutaBodegaComponent } from './modulos/modulo-inventario/rutas/ruta-bodega/ruta-bodega.component';
+import { BannerImagenesModule } from './componentes/banner-imagenes/banner-imagenes.module';
 
 @NgModule({
   //Componentes
@@ -32,7 +33,8 @@ import { RutaBodegaComponent } from './modulos/modulo-inventario/rutas/ruta-bode
   //Modulos
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    BannerImagenesModule
   ],
 
   //Servicios
