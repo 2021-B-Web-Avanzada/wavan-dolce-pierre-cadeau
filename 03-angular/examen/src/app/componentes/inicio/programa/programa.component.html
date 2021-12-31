@@ -1,0 +1,19 @@
+<div [ngStyle]="{'position': 'relative'}">
+    <div [ngStyle]="{'position': 'absolute'}">
+        <img [ngStyle]="{'width':'50px','position': 'relative','top':'150px','left':'25px','border':'solid 5px #fff', 'border-radius':'5px','z-index':'1'}"
+            class="img-fluid" [src]="icon" alt="imagen de {{titulo}}">
+    </div>
+
+    <div class="row">
+        <img [ngStyle]="{'object-fit':'cover'}" class="card-img-top" [src]="imagen" alt="imagen de {{titulo}}">
+        <div [ngStyle]="{'color':'#ffffff','z-index':'1'}" class="col mx-3">
+            <p class="" [ngStyle]="{'font-weight':'bold'}">{{titulo}}</p>
+            <p class="">{{subtitulo}}</p>
+            <p class="" [ngStyle]="{'font-weight':'bold'}">{{descripcion|uppercase}}</p>
+        </div>
+        <svg [ngStyle]="{'position': 'absolute','box-sizing': 'content-box'}" version="1.1"
+            xmlns="http://www.w3.org/2000/svg" height="" viewBox="0 8 100 0.5">
+            <polygon points="0,15 0,80 100,80 100,0" [attr.fill]="color" />
+        </svg>
+    </div>
+</div>

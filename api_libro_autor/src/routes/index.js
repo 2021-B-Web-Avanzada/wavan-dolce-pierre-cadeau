@@ -1,11 +1,10 @@
 const { Router } = require('express');
 const router = Router();
 const path = require('path');
-const jsPath = path.join(__dirname, '..', '..', '..', 'deber1', 'obtenerDatos.js');
-const dataModule = require(jsPath);
+const jsPath = path.join(__dirname, '..', '..', '..', 'deber1', 'funciones.js');
+const fun = require(jsPath);
 
 // GET
-
 //Raiz
 router.get('/', (req, res) => {
     res.json(
@@ -16,8 +15,8 @@ router.get('/', (req, res) => {
 })
 
 //Autor
-router.get('/autor', (req, res) => {
-    res.json(dataModule.getAutors()
+router.get('/autors', (req, res) => {
+    res.json(fun.getAutors()
     );
 })
 
@@ -26,7 +25,7 @@ router.get('/autor/:autorName', (req, res) => {
     try {
         if (req.query.autor !== "") {
             let autorName = req.params.autorName;
-            let autorEncontrato = dataModule.buscarAutor(autorName);
+            let autorEncontrato = fun.buscarAutor(autorName);
             res.json(autorEncontrato
             );
         } else {
@@ -40,7 +39,6 @@ router.get('/autor/:autorName', (req, res) => {
     } catch (e) {
         res.sendStatus('400')
     }
-
 })
 
 //Libros by autor
@@ -48,7 +46,7 @@ router.get('/libros/:autor&:title', (req, res) => {
     try {
         let autor = req.params.autor;
         let title = req.params.title;
-        const libro = dataModule.buscarLibrosAutor(autor, title);
+        const libro = fun.buscarLibrosAutor(autor, title);
         res.json(libro
         );
     } catch (e) {
@@ -57,7 +55,7 @@ router.get('/libros/:autor&:title', (req, res) => {
 })
 
 //POST
-
+//Crear autor
 router.post('/autor', (req, res) => {
     try {
         let nombre = req.body.nombre;
@@ -76,9 +74,7 @@ router.post('/autor', (req, res) => {
                 nombreCompleto: nombreCompleto,
                 libros: []
             };
-            console.log(autor);
-
-            dataModule.saveAutor(autor);
+            fun.saveAutor(autor);
             res.json({
                 "message": "Autor creado con exito"
             });
@@ -96,12 +92,10 @@ router.post('/autor', (req, res) => {
     }
 })
 
-
+//Crear libro
 router.post('/libros', (req, res) => {
     try {
-
         let nombre = req.body.nombre;
-
         let titulo = req.body.titulo;
         let numeroPaginas = req.body.numeroPaginas;
         let leido = req.body.leido;
@@ -127,7 +121,7 @@ router.post('/libros', (req, res) => {
                 fecha: fecha,
                 dimension: dimension
             };
-            dataModule.saveBook(nombre, libro);
+            fun.saveBook(nombre, libro);
             res.json({
                 "message": "Libro creado con exito"
             });
@@ -146,10 +140,9 @@ router.post('/libros', (req, res) => {
 })
 
 
-//saveAutorBookEdited
-//saveAutorEdited
-
-router.put('/autor/:autorName', (req, res) => {
+//PUT
+//Actualizar autor
+router.put('/autor', (req, res) => {
     try {
         let nombre = req.body.nombre;
         let direccion = req.body.direccion;
@@ -159,12 +152,12 @@ router.put('/autor/:autorName', (req, res) => {
                 direccion: direccion,
                 nacionalidad: nacionalidad,
             };
-            let oldAutor = dataModule.buscarAutor(nombre);
+            let oldAutor = fun.buscarAutor(nombre);
             const autorCompleto = {
                 ...oldAutor,
                 ...newAutor
             }
-            dataModule.saveAutorEdited(autorCompleto);
+            fun.saveAutorEdited(autorCompleto);
             res.json({
                 "message": "Autor actualizado con exito"
             });
@@ -182,28 +175,24 @@ router.put('/autor/:autorName', (req, res) => {
     }
 })
 
-router.put('/libros/:autorName&:title', (req, res) => {
-
+//Actualizar libro
+router.put('/libros', (req, res) => {
     try {
-
         let nombre = req.body.nombre;
-
         let titulo = req.body.titulo;
         let leido = req.body.leido;
         let precio = req.body.precio;
-
         if (nombre !== undefined && titulo !== undefined && leido !== undefined && precio !== undefined) {
             let newBook = {
                 leido: leido,
                 precio: precio,
             };
-            const libro = buscarLibrosAutor(nombre, titulo);
+            const libro = fun.buscarLibrosAutor(nombre, titulo);
             const libroCompleto = {
-                ...libro,
+                ...libro[0],
                 ...newBook
             }
-            saveAutorBookEdited(autorName, libroCompleto);
-
+            fun.saveAutorBookEdited(nombre, libroCompleto);
             res.json({
                 "message": "Libro actualizado con exito"
             });
@@ -213,6 +202,7 @@ router.put('/libros/:autorName&:title', (req, res) => {
             });
         }
     } catch (e) {
+        console.log(e);
         res.json(
             {
                 "error": "Error al actualizar el libro"
@@ -221,13 +211,12 @@ router.put('/libros/:autorName&:title', (req, res) => {
     }
 })
 
-
+//DELETE
+//Eliminar autor
 router.delete('/autor/:autorName', (req, res) => {
-    console.log(req.params);
     const autorName = req.params.autorName;
-
     try {
-        dataModule.deleteDataAutor(autorName);
+        fun.deleteDataAutor(autorName);
         res.json(
             {
                 "response": "True"
@@ -242,13 +231,12 @@ router.delete('/autor/:autorName', (req, res) => {
     }
 })
 
+//Eliminar libro
 router.delete('/libros/:autorName&:title', (req, res) => {
-    console.log(req.params);
     const autorName = req.params.autorName;
     const bookTitle = req.params.title;
-
     try {
-        dataModule.deleteBookAutor(autorName, bookTitle);
+        fun.deleteBookAutor(autorName, bookTitle);
         res.json(
             {
                 "response": "True"
