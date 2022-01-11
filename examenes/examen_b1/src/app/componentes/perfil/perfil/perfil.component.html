@@ -1,0 +1,37 @@
+<div class="container-fluid pt-5"
+    [ngStyle]="{'background':'url(https://coursera_assets.s3.amazonaws.com/growth_account_profile/account_bg_black2.png)'}">
+    <div class="col-6 m-auto" [ngStyle]="{'color':'white'}">
+        <div class="text-center">
+            <img [src]="urlImagenPerfil" alt="Imagen de perfil"
+                [ngStyle]="{'width':'144px','height':'144px','object-fit':'cover','border-radius':'50%'}">
+            <p class="fs-2">DOLCE</p>
+        </div>
+        <p class="text-center">Aprendiendo <b>Kotlin for java Developers</b></p>
+    </div>
+    <div class="row">
+        <div class="col-7 m-auto" [ngStyle]="{'background':'white'}">
+            <p class="text-center fs-2 py-3"> Logros</p>
+            <hr>
+            <div class="row">
+                <app-logros class="col-6"></app-logros>
+                <app-logros class="col-6"></app-logros>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container-fluid" [ngStyle]="{'background':'#eeeeee'}">
+    <div class="row">
+        <div class="col-7 m-auto" [ngStyle]="{'background':'white'}">
+            <div class="row">
+                <app-logros class="col-6"></app-logros>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-6 mt-5 m-auto">
+            <p class="text-center">
+                <button class="btn btn-primary">Editar mi perfil</button>
+            </p>
+        </div>
+    </div>
+</div>

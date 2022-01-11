@@ -1,0 +1,27 @@
+<div class="card">
+    <div [ngStyle]="{'position': 'absolute'}">
+        <img [ngStyle]="{'width':'50px','position': 'relative','top':'150px','left':'25px','border':'solid 5px #fff', 'border-radius':'5px'}"
+            class="img-fluid" [src]="contenido.icon" alt="imagen de {{contenido.titulo}}">
+    </div>
+    <img [ngStyle]="{'object-fit':'cover','height':'170px','width':'100%'}" class="card-img-top"
+        [src]="contenido.imagen" alt="imagen de {{contenido.titulo}}">
+    <div class="card-body d-flex flex-column">
+        <br>
+        <p class="card-title" [ngStyle]="{'color':'#0062e4'}">{{contenido.titulo}}</p>
+        <p class="card-text">{{contenido.subtitulo}}</p>
+        <p [ngStyle]="{'text-transform':'uppercase', 'color':'rgb(24, 89, 170)','font-weight':'bold'}"
+            *ngIf="contenido.tipo=='proyecto'">Proyecto Guiado</p>
+        <p class="mt-auto align-self-start" [ngStyle]="{'text-transform':'uppercase','font-weight':'bold'}"
+            *ngIf="contenido.tipo=='CURSO'">Curso</p>
+    </div>
+</div>
+<!--
+<div class="card">
+    <img src="https://i.postimg.cc/28PqLLQC/dotonburi-canal-osaka-japan-700.jpg" class="card-img-top" alt="Card Image">
+    <div class="card-body d-flex flex-column">
+        <h5 class="card-title">{{contenido.titulo}}</h5>
+        <p class="card-text mb-4">Is a manmade waterway dug in the early 1600's and now displays many landmark
+            commercial locals and vivid neon signs.</p>
+        <a href="#" class="btn btn-primary mt-auto align-self-start">Book now</a>
+    </div>
+</div>-->

@@ -1,0 +1,13 @@
+<div class="container my-5">
+    <div class="col">
+        <div class="row">
+            <span class="h3">Explora Coursera</span>
+        </div>
+        <div *ngFor="let row of categorias; let i = index" class="container ">
+            <div *ngIf=" i % 4 === 0 " class="row">
+                <app-categoria *ngFor="let categoria of categorias.slice(i,i+4);" [categoria]=categoria class="col">
+                </app-categoria>
+            </div>
+        </div>
+    </div>
+</div>

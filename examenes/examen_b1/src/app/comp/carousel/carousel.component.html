@@ -1,0 +1,82 @@
+<!--<div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-indicators">
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"
+            aria-current="true" aria-label="Slide 1"> Hola amigos</button>
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
+            aria-label="Slide 2"></button>
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
+            aria-label="Slide 3"></button>
+    </div>
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+            <div *ngFor="let row of contenidos; let i = index" class="container ">
+                <div *ngIf=" i % 4 === 0 " class="row">
+                    <app-contenido *ngFor="let item of contenidos.slice(i,i+4)"
+                        class="col-lg-3 mb-3 d-flex align-items-stretch" [contenido]=item></app-contenido>
+                </div>
+            </div>
+        </div>
+        <div class="carousel-item">
+            <div *ngFor="let row of contenidos; let i = index" class="container ">
+                <div *ngIf=" i % 4 === 0 " class="row">
+                    <app-contenido *ngFor="let item of contenidos.slice(i,i+4)"
+                        class="col-lg-3 mb-3 d-flex align-items-stretch" [contenido]=item></app-contenido>
+                </div>
+            </div>
+        </div>
+        <div class="carousel-item">
+            <div *ngFor="let row of contenidos; let i = index" class="container ">
+                <div *ngIf=" i % 4 === 0 " class="row">
+                    <app-contenido *ngFor="let item of contenidos.slice(i,i+4)"
+                        class="col-lg-3 mb-3 d-flex align-items-stretch" [contenido]=item></app-contenido>
+                </div>
+            </div>
+        </div>
+    </div>
+    <button [ngStyle]="{'color':'black'}" class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
+        data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+        <i class="fas fa-chevron-left"></i>Peter Cadeau
+    </button>
+    <button [ngStyle]="{'color':'black'}" class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
+        data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+        <i class="fas fa-angle-right"></i>
+    </button>
+</div>-->
+<div class="col">
+    <p class="h3 my-3">
+        Obtén tu título de grado
+    </p>
+    <p-carousel [value]="contenidos" [numVisible]="4">
+        <ng-template let-contenido pTemplate="item">
+            <app-contenido class="col mb-3 d-flex align-items-stretch" [contenido]=contenido></app-contenido>
+        </ng-template>
+    </p-carousel>
+</div>
+
+<!--<p-carousel [value]="contenidos" [numVisible]="3" [numScroll]="3" [circular]="false" >
+    <ng-template pTemplate="header">
+        <h5>Basic</h5>
+    </ng-template>
+    <ng-template let-product pTemplate="item">
+        <div class="product-item">
+            <div class="product-item-content">
+                <div class="p-mb-3">
+                </div>
+                <div>
+                    <h4 class="p-mb-1">{{product.name}}</h4>
+                    <h6 class="p-mt-0 p-mb-3">${{product.price}}</h6>
+                    <span [class]="'product-badge status-'+product.inventoryStatus.toLowerCase()">{{product.inventoryStatus}}</span>
+                    <div class="car-buttons p-mt-5">
+                        <p-button type="button" styleClass="p-button p-button-rounded p-mr-2" icon="pi pi-search"></p-button>
+                        <p-button type="button" styleClass="p-button-success p-button-rounded p-mr-2" icon="pi pi-star"></p-button>
+                        <p-button type="button" styleClass="p-button-help p-button-rounded" icon="pi pi-cog"></p-button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </ng-template>
+</p-carousel>-->

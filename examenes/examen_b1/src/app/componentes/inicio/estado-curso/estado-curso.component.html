@@ -1,0 +1,49 @@
+<div class="card">
+    <div class="card-header" [ngStyle]="{'background-color':matricula.color, 'color':'white'}">
+        <div class="d-flex bd-highlight">
+            <div class="p-2 bd-highlight">{{matricula.titulo}}</div>
+            <div class="ms-auto p-2 bd-highlight">
+                <div class="btn-group">
+                    <i type="button" class="fas fa-ellipsis-v" data-bs-toggle="dropdown" aria-expanded="false"></i>
+                    <ul class="dropdown-menu dropdown-menu-end">
+                        <li *ngIf="matricula.estado ==='Atrasado'"><button class="dropdown-item"
+                                type="button">Restablecer Fechas Límite</button></li>
+                        <li><button class="dropdown-item" type="button">Calificar el curso</button></li>
+                        <li *ngIf="matricula.estado ==='Atrasado'"><button class="dropdown-item" type="button">Darse
+                                de baja</button></li>
+                    </ul>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+    <div class="card-body">
+        <div class="row my-5 mx-3">
+            <div class="col">
+                <h5 class="card-title" [ngStyle]="{'color':'#0056D2'}">{{matricula.titulo}}</h5>
+                <span
+                    [ngStyle]="{
+                        'border': matricula.estado ==='Completado' ? 'solid 1px green': matricula.estado ==='Atrasado' ? 'solid 1px red':'solid 1px blue' ,'border-radius':'20px','padding':'0 5px'}">
+                    {{matricula.estado}}
+                </span>
+            </div>
+            <div class="col d-flex justify-content-end">
+                <div *ngIf="matricula.estado ==='Completado'">
+                    <span class="btn btn-primary">Ver certificado</span>
+                    <div><a href="#" class="link-primary">Calificar curso</a></div>
+                </div>
+                <div *ngIf="matricula.estado ==='En Curso'">
+                    <span class="btn btn-primary">Ir al curso</span>
+                </div>
+                <div *ngIf="matricula.estado ==='Atrasado'">
+                    <span class="btn btn-primary">Ir al curso</span>
+                    <p>Restablecer Fechas Límite</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="card-footer">
+        {{matricula.autor|uppercase}}
+    </div>
+</div>
