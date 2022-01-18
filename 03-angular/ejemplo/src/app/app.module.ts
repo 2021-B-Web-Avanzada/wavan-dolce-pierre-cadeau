@@ -15,6 +15,8 @@ import { AuthService } from './servicios/auth/auth.service';
 import { EstaLogeadoGuard } from './servicios/auth/esta-logeado.guard';
 import { EsAdministradorGuard } from './servicios/auth/es-administrador.guard';
 import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
+import { RutaUsuarioPerfilComponent } from './rutas/ruta-usuario-perfil/ruta-usuario-perfil.component';
 
 @NgModule({
   //Componentes
@@ -27,7 +29,8 @@ import { HttpClientModule } from '@angular/common/http';
     RutaUsuarioComponent,
     RutaPostComponent,
     RutaAppComponent,
-    RutaBodegaComponent
+    RutaBodegaComponent,
+    RutaUsuarioPerfilComponent
   ],
 
   //Modulos
@@ -35,7 +38,8 @@ import { HttpClientModule } from '@angular/common/http';
     BrowserModule,
     AppRoutingModule,
     BannerImagenesModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
 
   //Servicios
