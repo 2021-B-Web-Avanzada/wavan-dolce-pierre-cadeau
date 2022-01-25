@@ -62,7 +62,10 @@ export class RutaUsuarioComponent implements OnInit {
   }
 
   gestionarUsuario(id: number) {
-
+    this.router.navigate(['/app', 'usuario', id],
+      {
+       
+      });
   }
 
 }

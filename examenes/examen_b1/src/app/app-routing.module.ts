@@ -5,15 +5,6 @@ import { PerfilComponent } from './componentes/perfil/perfil/perfil.component';
 
 
 const routes: Routes = [
-
-  {
-    path: 'categorias',
-    component: ExplorerComponent
-  },
-  {
-    path: 'perfil',
-    component: PerfilComponent
-  }
 ];
 
 @NgModule({

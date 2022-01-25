@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
+import { UserJphInterface } from 'src/app/servicios/http/interfaces/user-jph.interface';
+import { UserJPHService } from 'src/app/servicios/http/user-jph.service';
 
 @Component({
   selector: 'app-ruta-usuario-perfil',
@@ -8,8 +11,13 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class RutaUsuarioPerfilComponent implements OnInit {
   idUsuario = 0;
+  usuarioActual?: UserJphInterface;
+  formGroup?: FormGroup;
+
   constructor(
     private readonly activatedRoute: ActivatedRoute,
+    private readonly userJPHService: UserJPHService,
+    private readonly formBuilder: FormBuilder
   ) { }
 
   ngOnInit(): void {
@@ -18,6 +26,7 @@ export class RutaUsuarioPerfilComponent implements OnInit {
       (parametrosRuta) => {
         console.log(parametrosRuta);
         this.idUsuario = +parametrosRuta['idUsuario'];
+        this.buscarUsuario(this.idUsuario);
       },
       () => {
       },
@@ -26,4 +35,74 @@ export class RutaUsuarioPerfilComponent implements OnInit {
     );
   }
 
+  private prepararFormulario() {
+    this.formGroup = this.formBuilder.group({
+      email: new FormControl({
+        value: this.usuarioActual ? this.usuarioActual.email : '',
+        disabled: false//this.usuarioActual
+      },
+        [Validators.required,
+        Validators.email]),
+    });
+
+    const cambio$ = this.formGroup.valueChanges;
+    cambio$.subscribe(
+      (data) => {
+        if (this.formGroup?.valid) {
+          console.log('valido');
+        } else {
+          console.log('invalido');
+        }
+      }
+    );
+  }
+
+  buscarUsuario(id: number) {
+    const buscarUsuario$ = this.userJPHService.buscarUno(id);
+    buscarUsuario$.subscribe(
+      (data) => {
+        this.usuarioActual = data;
+        this.prepararFormulario();
+      },
+      (error) => {
+        console.log(error);
+      },
+      () => {
+      }
+    );
+  }
+
+  prepararObjeto() {
+    if (this.formGroup?.valid) {
+      const email = this.formGroup.get('email')
+      if (email) {
+        return {
+          email: email.value,
+        }
+      }
+    } else {
+      console.log('invalido');
+    }
+    return {
+      email: '',
+    }
+  }
+
+  actualizarUsuario() {
+    if (this.usuarioActual) {
+      const valorAActualizar = this.prepararObjeto();
+      const actualizarUsuario$ = this.userJPHService.actualizarPorID(this.usuarioActual.id, valorAActualizar);
+      actualizarUsuario$.subscribe(
+        (data) => {
+          console.log({data});
+        },
+        (error) => {
+          console.log(error);
+        },
+        () => {
+        }
+      );
+
+    }
+  }
 }
