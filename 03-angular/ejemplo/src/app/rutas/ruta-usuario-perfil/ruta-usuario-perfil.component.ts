@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { MatDialog } from '@angular/material/dialog';
+import { ActivatedRoute, Router } from '@angular/router';
+import { ModalEjemploComponent } from 'src/app/componentes/modales/modal-ejemplo/modal-ejemplo.component';
 import { UserJphInterface } from 'src/app/servicios/http/interfaces/user-jph.interface';
 import { UserJPHService } from 'src/app/servicios/http/user-jph.service';
 
@@ -11,13 +13,16 @@ import { UserJPHService } from 'src/app/servicios/http/user-jph.service';
 })
 export class RutaUsuarioPerfilComponent implements OnInit {
   idUsuario = 0;
+  valorKnob = 36;
   usuarioActual?: UserJphInterface;
   formGroup?: FormGroup;
 
   constructor(
     private readonly activatedRoute: ActivatedRoute,
     private readonly userJPHService: UserJPHService,
-    private readonly formBuilder: FormBuilder
+    private readonly formBuilder: FormBuilder,
+    private readonly router: Router,
+    private readonly dialog: MatDialog
   ) { }
 
   ngOnInit(): void {
@@ -43,6 +48,7 @@ export class RutaUsuarioPerfilComponent implements OnInit {
       },
         [Validators.required,
         Validators.email]),
+      esAdministrador: new FormControl(true)
     });
 
     const cambio$ = this.formGroup.valueChanges;
@@ -94,7 +100,9 @@ export class RutaUsuarioPerfilComponent implements OnInit {
       const actualizarUsuario$ = this.userJPHService.actualizarPorID(this.usuarioActual.id, valorAActualizar);
       actualizarUsuario$.subscribe(
         (data) => {
-          console.log({data});
+          console.log({ data });
+          const url = ['/app', 'usuario'];
+          this.router.navigate(url);
         },
         (error) => {
           console.log(error);
@@ -104,5 +112,43 @@ export class RutaUsuarioPerfilComponent implements OnInit {
       );
 
     }
+  }
+
+  items = [
+    {
+      label: 'Update',
+      icon: 'pi pi-refresh',
+      command: () => {
+        console.log('update');
+      }
+    }, {
+      label: 'Setup',
+      icon: 'pi pi-cog',
+      routerLink: ['/setup']
+    }]
+
+  guardar() {
+    console.log('save');
+  }
+  model = {
+    left: true,
+    middle: false,
+    right: false
+  }
+
+  openDialog() {
+    const referenciaDialogo = this.dialog.open(
+      ModalEjemploComponent,
+      {
+        data:
+          { animal: 'panda' }
+      });
+
+    const despuesCerrado$ = referenciaDialogo.afterClosed();
+    despuesCerrado$.subscribe(
+      (data) => {
+        console.log({ data });
+      }
+    );
   }
 }

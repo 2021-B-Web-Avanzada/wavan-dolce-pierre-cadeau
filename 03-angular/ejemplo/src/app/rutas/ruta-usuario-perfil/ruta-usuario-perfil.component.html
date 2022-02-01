@@ -2,6 +2,27 @@
     {{usuarioActual.name}}
 </h1>
 
+<p-knob [(ngModel)]="valorKnob"></p-knob>
+<p-splitButton label="Save" icon="pi pi-check" (onClick)="guardar()" [model]="items"></p-splitButton>
+
+<button id="basic" type="button" color="primary" mat-button mat-raised-button (click)="guardar()">
+    Basic button
+</button>
+<button mat-button (click)="openDialog()">Launch dialog</button>
+
+<div class="btn-group btn-group-toggle">
+    <label class="btn-primary" ngbButtonLabel>
+        <input type="checkbox" ngbButton [(ngModel)]="model.left"> Left (pre-checked)
+    </label>
+    <label class="btn-primary" ngbButtonLabel>
+        <input type="checkbox" ngbButton [(ngModel)]="model.middle"> Middle
+    </label>
+    <label class="btn-primary" ngbButtonLabel>
+        <input type="checkbox" ngbButton [(ngModel)]="model.right"> Right
+    </label>
+</div>
+
+
 <div *ngIf="formGroup" class="container">
     <form [formGroup]="formGroup">
         <div class="mb-3">
@@ -17,6 +38,16 @@
                     <span *ngIf="formGroup.get('email')?.hasError('required')">Correo requerido</span>
                     <span *ngIf="formGroup.get('email')?.hasError('minLength')">Mínimo de 3 caracteres</span>
                 </div>
+            </div>
+        </div>
+        <!-- es admin -->
+        <div class="mb-3">
+            <label for="name" class="form-label">
+                Es Administrador
+            </label>
+            <p-inputSwitch formControlName="esAdministrador"></p-inputSwitch>
+            <div id="nameHelp" class="form-text">
+                Ingrese un name.
             </div>
         </div>
         <!-- name -->

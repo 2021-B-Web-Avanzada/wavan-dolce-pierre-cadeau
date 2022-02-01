@@ -17,6 +17,14 @@ import { EsAdministradorGuard } from './servicios/auth/es-administrador.guard';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RutaUsuarioPerfilComponent } from './rutas/ruta-usuario-perfil/ruta-usuario-perfil.component';
+import {InputSwitchModule} from 'primeng/inputswitch';
+import {KnobModule} from 'primeng/knob';
+import {SplitButtonModule} from 'primeng/splitbutton';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {MatButtonModule} from '@angular/material/button';
+import { ModalEjemploComponent } from './componentes/modales/modal-ejemplo/modal-ejemplo.component';
+import {MatDialogModule} from '@angular/material/dialog';
+import { NgbButtonsModule, NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   //Componentes
@@ -30,7 +38,8 @@ import { RutaUsuarioPerfilComponent } from './rutas/ruta-usuario-perfil/ruta-usu
     RutaPostComponent,
     RutaAppComponent,
     RutaBodegaComponent,
-    RutaUsuarioPerfilComponent
+    RutaUsuarioPerfilComponent,
+    ModalEjemploComponent
   ],
 
   //Modulos
@@ -40,7 +49,15 @@ import { RutaUsuarioPerfilComponent } from './rutas/ruta-usuario-perfil/ruta-usu
     BannerImagenesModule,
     HttpClientModule,
     FormsModule, //Template-driven forms
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    InputSwitchModule,
+    KnobModule,
+    SplitButtonModule,
+    BrowserAnimationsModule,
+    MatButtonModule,
+    MatDialogModule,
+    NgbModule,
+    NgbButtonsModule
   ],
 
   //Servicios
