@@ -17,14 +17,15 @@ import { EsAdministradorGuard } from './servicios/auth/es-administrador.guard';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RutaUsuarioPerfilComponent } from './rutas/ruta-usuario-perfil/ruta-usuario-perfil.component';
-import {InputSwitchModule} from 'primeng/inputswitch';
-import {KnobModule} from 'primeng/knob';
-import {SplitButtonModule} from 'primeng/splitbutton';
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {MatButtonModule} from '@angular/material/button';
+import { InputSwitchModule } from 'primeng/inputswitch';
+import { KnobModule } from 'primeng/knob';
+import { SplitButtonModule } from 'primeng/splitbutton';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatButtonModule } from '@angular/material/button';
 import { ModalEjemploComponent } from './componentes/modales/modal-ejemplo/modal-ejemplo.component';
-import {MatDialogModule} from '@angular/material/dialog';
+import { MatDialogModule } from '@angular/material/dialog';
 import { NgbButtonsModule, NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { SocketIoModule } from 'ngx-socket-io';
 
 @NgModule({
   //Componentes
@@ -57,7 +58,12 @@ import { NgbButtonsModule, NgbModule } from '@ng-bootstrap/ng-bootstrap';
     MatButtonModule,
     MatDialogModule,
     NgbModule,
-    NgbButtonsModule
+    NgbButtonsModule,
+    SocketIoModule.forRoot({
+      url: 'http://localhost:8080',
+      options: {
+      },
+    }),
   ],
 
   //Servicios
