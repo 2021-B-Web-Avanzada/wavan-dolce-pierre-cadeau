@@ -1,1 +1,111 @@
-[{"nombre":"José Manuel","apellido":"Ortega Candel","edad":46,"direccion":"Calle Falsa 234","nacionalidad":"Español","nombreCompleto":"José Manuel Ortega Candel","libros":[{"titulo":"Desarrollo de motores de búsqueda utilizando herramientas open source","numeroPaginas":330,"leido":true,"precio":34.8,"editorial":"Marcombo","isbn":"978-84-267-3311-5","peso":650,"idioma":"Castellano","fecha":"20-05-2021","dimension":{"ancho":240,"alto":170}},{"titulo":"Desarrollo seguro en ingeniería del software. Aplicaciones seguras con Android, NodeJS, Python y C++","numeroPaginas":388,"leido":true,"precio":33.8,"editorial":"Marcombo","isbn":"978-84-267-2800-5","peso":650,"idioma":"Castellano","fecha":"06-02-2020","dimension":{"ancho":240,"alto":170}},{"titulo":"Seguridad en aplicaciones Web Java","numeroPaginas":430,"leido":true,"precio":24.9,"editorial":"RA-MA S.A. Editorial y Publicaciones","isbn":"978-84-9964-732-6","idioma":"Castellano","fecha":"20-03-2018","dimension":{"ancho":240,"alto":170}},{"titulo":"Ciberseguridad. Manual práctico","numeroPaginas":346,"leido":true,"precio":27.5,"editorial":"Ediciones Paraninfo, S.A","isbn":"978-84-1366-116-2","peso":720,"idioma":"Castellano","fecha":"15-11-2021","dimension":{"ancho":240,"alto":170}}]},{"nombre":"Mariona","apellido":"Nadal","edad":37,"direccion":"Quito, Ecuador","nacionalidad":"Cubano","nombreCompleto":"Mariona Nadal","libros":[{"titulo":"Curso de programación Java","numeroPaginas":456,"leido":false,"precio":28.75,"editorial":"Anaya Multimedia","isbn":"","peso":723,"idioma":"Castellano","fecha":"24-06-2021","dimension":{"ancho":"220","alto":"175"}},{"titulo":"Galicia industrial","numeroPaginas":168,"leido":false,"precio":35.4,"editorial":"Fundación Barrié","isbn":"978-84-95892-45-4","peso":1000,"idioma":"Castellano","fecha":"01-01-2005","dimension":{"ancho":"240","alto":"170"}}]}]
+[
+    {
+        "nombre": "José Manuel",
+        "apellido": "Ortega Candel",
+        "edad": 46,
+        "direccion": "Calle Falsa 234",
+        "nacionalidad": "Español",
+        "nombreCompleto": "José Manuel Ortega Candel",
+        "libros": [
+            {
+                "titulo": "Desarrollo de motores de búsqueda utilizando herramientas open source",
+                "numeroPaginas": 330,
+                "leido": true,
+                "precio": 34.8,
+                "editorial": "Marcombo",
+                "isbn": "978-84-267-3311-5",
+                "peso": 650,
+                "idioma": "Castellano",
+                "fecha": "20-05-2021",
+                "dimension": {
+                    "ancho": 240,
+                    "alto": 170
+                }
+            },
+            {
+                "titulo": "Desarrollo seguro en ingeniería del software. Aplicaciones seguras con Android, NodeJS, Python y C++",
+                "numeroPaginas": 388,
+                "leido": true,
+                "precio": 33.8,
+                "editorial": "Marcombo",
+                "isbn": "978-84-267-2800-5",
+                "peso": 650,
+                "idioma": "Castellano",
+                "fecha": "06-02-2020",
+                "dimension": {
+                    "ancho": 240,
+                    "alto": 170
+                }
+            },
+            {
+                "titulo": "Seguridad en aplicaciones Web Java",
+                "numeroPaginas": 430,
+                "leido": true,
+                "precio": 24.9,
+                "editorial": "RA-MA S.A. Editorial y Publicaciones",
+                "isbn": "978-84-9964-732-6",
+                "idioma": "Castellano",
+                "fecha": "20-03-2018",
+                "dimension": {
+                    "ancho": 240,
+                    "alto": 170
+                }
+            },
+            {
+                "titulo": "Ciberseguridad. Manual práctico",
+                "numeroPaginas": 346,
+                "leido": true,
+                "precio": 27.5,
+                "editorial": "Ediciones Paraninfo, S.A",
+                "isbn": "978-84-1366-116-2",
+                "peso": 720,
+                "idioma": "Castellano",
+                "fecha": "15-11-2021",
+                "dimension": {
+                    "ancho": 240,
+                    "alto": 170
+                }
+            }
+        ]
+    },
+    {
+        "nombre": "Mariona",
+        "apellido": "Nadal",
+        "edad": 37,
+        "direccion": "Quito, Ecuador",
+        "nacionalidad": "Cubano",
+        "nombreCompleto": "Mariona Nadal",
+        "libros": [
+            {
+                "titulo": "Curso de programación Java",
+                "numeroPaginas": 456,
+                "leido": false,
+                "precio": 28.75,
+                "editorial": "Anaya Multimedia",
+                "isbn": "",
+                "peso": 723,
+                "idioma": "Castellano",
+                "fecha": "24-06-2021",
+                "dimension": {
+                    "ancho": "220",
+                    "alto": "175"
+                }
+            },
+            {
+                "titulo": "Galicia industrial",
+                "numeroPaginas": 168,
+                "leido": false,
+                "precio": 35.4,
+                "editorial": "Fundación Barrié",
+                "isbn": "978-84-95892-45-4",
+                "peso": 1000,
+                "idioma": "Castellano",
+                "fecha": "01-01-2005",
+                "dimension": {
+                    "ancho": "240",
+                    "alto": "170"
+                }
+            }
+        ]
+    }
+]
