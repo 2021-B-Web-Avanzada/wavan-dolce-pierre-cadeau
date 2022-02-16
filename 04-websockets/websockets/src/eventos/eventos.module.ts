@@ -3,9 +3,12 @@ import { EventosGetway } from "./eventos.getway";
 
 
 @Module({
-    providers:[
+    providers: [
         EventosGetway
     ],
+    exports: [
+        EventosGetway
+    ]
 })
 
 export class EventosModule {
