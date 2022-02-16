@@ -19,12 +19,16 @@ La carpeta deberes tiene los 2 deberes realizados
 
 ### Deber 1
 Realizar un CRUD usando archivos en JS sobre Autores y Libros
-<a name="proyecto" href="https://github.com/2021-B-Web-Avanzada/wavan-dolce-pierre-cadeau/tree/desarrollo/deberes/deber1">deber 1</a>
+<a name="deber1" href="https://github.com/2021-B-Web-Avanzada/wavan-dolce-pierre-cadeau/tree/desarrollo/deberes/deber1">deber 1</a>
 
 
 ### Deber 2
 API para consumir Autores y Libros
-<a name="proyecto" href="https://github.com/2021-B-Web-Avanzada/wavan-dolce-pierre-cadeau/tree/desarrollo/deberes/api_libro_autor">API Libros Autores</a>
+<a name="deber2" href="https://github.com/2021-B-Web-Avanzada/wavan-dolce-pierre-cadeau/tree/desarrollo/deberes/api_libro_autor">API Libros Autores</a>
+
+### Deber 3
+Manejo de Autores y Libros mediante interfaces gráficas
+<a name="deber3" href="https://github.com/2021-B-Web-Avanzada/wavan-dolce-pierre-cadeau/tree/desarrollo/deberes/deber3">Interfaces gráficas Libros Autores</a>
 
 
 ## Proyecto
