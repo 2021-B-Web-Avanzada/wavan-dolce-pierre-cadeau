@@ -10,7 +10,8 @@ import { RutaLibroComponent } from './rutas/ruta-libro/ruta-libro.component';
 import { HttpClientModule } from '@angular/common/http';
 import { TableModule } from 'primeng/table';
 import { RutaCrearLibroComponent } from './rutas/ruta-crear-libro/ruta-crear-libro.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { RutaCrearAutorComponent } from './rutas/ruta-crear-autor/ruta-crear-autor.component';
 
 @NgModule({
   declarations: [
@@ -19,14 +20,16 @@ import { FormsModule } from '@angular/forms';
     RutaAutorComponent,
     RutaLibrosComponent,
     RutaLibroComponent,
-    RutaCrearLibroComponent
+    RutaCrearLibroComponent,
+    RutaCrearAutorComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     TableModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -24,7 +24,7 @@ export class RutaLibroComponent implements OnInit {
       (parametrosRuta) => {
         this.idUsuario = parametrosRuta['id'];
         this.idLibro = parametrosRuta['idLibro'];
-        const librosData$ = this.librosService.getBookFtomAutor(this.idUsuario, this.idLibro)
+        const librosData$ = this.librosService.getBooksFtomAutor(this.idUsuario, this.idLibro)
         librosData$.subscribe(
           (data: LibroInterface[]) => {
             this.libro = data[0]

@@ -13,11 +13,7 @@ export class LibroService {
 
     constructor(private http: HttpClient) { }
 
-    getBookFtomAutor(autor: string, libro: string): Observable<LibroInterface[]> {
-        /*return this.http.get('/showcase/resources/data/cars-small.json')
-            .toPromise()
-            .then(res => res?.data as HistorialCompraInterface[])
-            .then(data => { return data; });*/
+    getBooksFtomAutor(autor: string, libro: string): Observable<LibroInterface[]> {
         const url = `${environment.apiUrl}libros/${autor}&${libro}`;
         return this.http
             .get(url)
@@ -28,17 +24,53 @@ export class LibroService {
             );
     }
 
+
     getAAutor(nombre: string): Observable<AutorInterface> {
-        /*return this.http.get('/showcase/resources/data/cars-small.json')
-            .toPromise()
-            .then(res => res?.data as HistorialCompraInterface[])
-            .then(data => { return data; });*/
         const url = `${environment.apiUrl}autor/${nombre}`;
         return this.http
             .get(url)
             .pipe(
                 map(
                     (respuesta: Object) => respuesta as AutorInterface
+                )
+            );
+    }
+
+    postLibro(nombre: string, libro: LibroInterface): any {
+        const url = `${environment.apiUrl}libros/`;
+        let l = JSON.stringify(libro);
+        let params = JSON.parse(l);
+        params['nombre'] = nombre;
+        return this.http
+            .post(url, params)
+            .pipe(
+                map(
+                    (respuesta: Object) => respuesta
+                )
+            );
+    }
+
+    updateLibro(nombre: string, libro: LibroInterface): any {
+        const url = `${environment.apiUrl}libros/`;
+        let l = JSON.stringify(libro);
+        let params = JSON.parse(l);
+        params['nombre'] = nombre;
+        return this.http
+            .put(url, params)
+            .pipe(
+                map(
+                    (respuesta: Object) => respuesta
+                )
+            );
+    }
+
+    deleteLibro(nombre: string, titulo: string): any {
+        const url = `${environment.apiUrl}libros/${nombre}&${titulo}`;
+        return this.http
+            .delete(url)
+            .pipe(
+                map(
+                    (respuesta: Object) => respuesta
                 )
             );
     }
