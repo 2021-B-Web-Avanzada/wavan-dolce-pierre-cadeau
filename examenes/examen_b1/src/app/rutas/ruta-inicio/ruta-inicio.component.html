@@ -1,0 +1,43 @@
+<app-header></app-header>
+<app-cursos></app-cursos>
+<div class="container">
+    <app-explorer></app-explorer>
+    <div class="col">
+        <div class="row">
+            <span class="h3">Cursos</span>
+        </div>
+        <div *ngFor="let row of contenidos; let i = index" class="container ">
+            <div *ngIf=" i % 4 === 0 " class="row">
+                <app-contenido *ngFor="let item of contenidos.slice(i,i+4)"
+                    class="col-lg-3 mb-3 d-flex align-items-stretch" [contenido]=item></app-contenido>
+            </div>
+        </div>
+    </div>
+
+    <app-carousel [contenidos]=contenidos></app-carousel>
+    <div class="col">
+        <p class="h3 my-3">
+            Obtén tu título de grado
+        </p>
+        <div *ngFor="let row of certificados; let i = index" class="container ">
+            <div *ngIf=" i % 4 === 0 " class="row">
+                <app-certificacion *ngFor="let item of certificados.slice(i,i+4)"
+                    class="col-lg-3 mb-3 d-flex align-items-stretch" [certificado]=item></app-certificacion>
+            </div>
+        </div>
+    </div>
+
+    <div class="col">
+        <div class="row">
+            <span class="h3">Popular in Computer Science</span>
+        </div>
+        <div *ngFor="let row of certificados; let i = index" class="container ">
+            <div *ngIf=" i % 4 === 0 " class="row">
+                <app-programa *ngFor="let item of certificados.slice(i,i+4)"
+                    class="col-lg-3 mb-3 d-flex align-items-stretch" [certificado]=item></app-programa>
+            </div>
+        </div>
+    </div>
+
+</div>
+

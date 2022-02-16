@@ -1,0 +1,107 @@
+<section class="">
+    <div class="container h-100">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="card col-12 pt-3">
+                <div *ngIf="libro" class=" shadow-2-strong" style="border-radius: .8rem;">
+                    <h1 class="mb-2">{{libro.titulo}}</h1>
+                    <div class="mb-3 row">
+                        <label for="titulo" class="col-sm-2 col-form-label">Título</label>
+                        <div class="col-sm-10">
+                            <input id="titulo" class="form-control" type="text" value="{{libro.titulo}}"
+                                aria-label="Disabled input example" disabled readonly>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <div class="mb-3 row">
+                                <label for="titulo" class="col-sm-4 col-form-label">Número de páginas</label>
+                                <div class="col-sm-8">
+                                    <input id="titulo" class="form-control" type="text" value="{{libro.numeroPaginas}}"
+                                        aria-label="input example" disabled readonly>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="mb-3 row">
+                                <label for="titulo" class="col-sm-4 col-form-label">Precio</label>
+                                <div class="col-sm-8">
+                                    <input id="titulo" class="form-control" type="text" value="{{libro.precio}}"
+                                        aria-label="input example" disabled readonly>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-check form-switch">
+                        <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked"
+                            *ngIf="libro.leido" checked>
+                        <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked"
+                            *ngIf="!libro.leido">
+                        <label class="form-check-label" for="flexSwitchCheckChecked">El libro es leido</label>
+                    </div>
+                    <div class="mb-3 row">
+                        <label for="titulo" class="col-sm-2 col-form-label">Editorial</label>
+                        <div class="col-sm-10">
+                            <input id="titulo" class="form-control" type="text" value="{{libro.editorial}}"
+                                aria-label="input example" disabled readonly>
+                        </div>
+                    </div>
+                    <div class="mb-3 row">
+                        <label for="titulo" class="col-sm-2 col-form-label">ISBN</label>
+                        <div class="col-sm-10">
+                            <input id="titulo" class="form-control" type="text" value="{{libro.isbn}}"
+                                aria-label="input example" disabled readonly>
+                        </div>
+                    </div>
+                    <div class="mb-3 row">
+                        <label for="titulo" class="col-sm-2 col-form-label">Peso</label>
+                        <div class="col-sm-10">
+                            <input id="titulo" class="form-control" type="text" value="{{libro.peso}}"
+                                aria-label="input example" disabled readonly>
+                        </div>
+                    </div>
+                    <div class="mb-3 row">
+                        <label for="titulo" class="col-sm-2 col-form-label">Idioma</label>
+                        <div class="col-sm-10">
+                            <input id="titulo" class="form-control" type="text" value="{{libro.idioma}}"
+                                aria-label="input example" disabled readonly>
+                        </div>
+                    </div>
+                    <div class="mb-3 row">
+                        <label for="titulo" class="col-sm-2 col-form-label">Fecha de publicación</label>
+                        <div class="col-sm-10">
+                            <input id="titulo" class="form-control" type="text" value="{{libro.fecha}}"
+                                aria-label="input example" disabled readonly>
+                        </div>
+                    </div>
+                    <div class="mb-3 row">
+                        <label for="titulo" class="col-sm-2 col-form-label">Dimensión</label>
+                        <div class="col-sm-10">
+                            <div class="row">
+                                <div class="col">
+                                    <div class="mb-3 row">
+                                        <label for="titulo" class="col-sm-2 col-form-label">Ancho</label>
+                                        <div class="col-sm-10">
+                                            <input id="titulo" class="form-control" type="text"
+                                                value="{{libro.dimension.ancho}}" aria-label="input example" disabled
+                                                readonly>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="mb-3 row">
+                                        <label for="titulo" class="col-sm-2 col-form-label">Alto</label>
+                                        <div class="col-sm-10">
+                                            <input id="titulo" class="form-control" type="text"
+                                                value="{{libro.dimension.alto}}" aria-label="input example" disabled
+                                                readonly>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

@@ -18,5 +18,24 @@
       </li>
     </ul>
   </li>
+  <li>
+    <a [routerLink]="['/lazy-inventario']">Inventario</a>
+    <ul>
+      <li>
+        <a [routerLink]="['/lazy-inventario','bodega']">Bodega</a>
+      </li>
+      <li>
+        <a [routerLink]="['/lazy-inventario','reporte']">Reporte</a>
+      </li>
+    </ul>
+  </li>
 </ul>
+
+<button (click)="eventoHola()">Enviar hola</button>
+
+
+
+
+
+
 <router-outlet></router-outlet>

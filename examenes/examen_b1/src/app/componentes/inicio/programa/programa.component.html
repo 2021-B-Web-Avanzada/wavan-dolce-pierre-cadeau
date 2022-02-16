@@ -1,0 +1,19 @@
+<div [ngStyle]="{'position': 'relative'}">
+    <div [ngStyle]="{'position': 'absolute'}">
+        <img [ngStyle]="{'width':'50px','position': 'relative','top':'120px','left':'25px','border':'solid 5px #fff', 'border-radius':'5px','z-index':'1'}"
+            class="img-fluid" [src]="certificado.icon" alt="imagen de {{certificado.titulo}}">
+    </div>
+    <div class="row">
+        <img [ngStyle]="{'object-fit':'cover'}" class="card-img-top" [src]="certificado.imagen"
+            alt="imagen de {{certificado.titulo}}">
+        <div [ngStyle]="{'color':'#ffffff','z-index':'1', 'padding-top':'50px'}" class="col mx-3">
+            <p class="" [ngStyle]="{'font-weight':'bold'}">{{certificado.titulo}}</p>
+            <p class="">{{certificado.subtitulo}}</p>
+            <p class="" [ngStyle]="{'font-weight':'bold'}">{{certificado.tipo|uppercase}}</p>
+        </div>
+        <svg [ngStyle]="{'position': 'absolute','box-sizing': 'content-box'}" version="1.1"
+            xmlns="http://www.w3.org/2000/svg" height="" viewBox="0 8 100 0.5">
+            <polygon points="0,0 0,80 100,80 100,-10" [attr.fill]="color" />
+        </svg>
+    </div>
+</div>

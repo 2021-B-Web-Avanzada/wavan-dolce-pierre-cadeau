@@ -1,0 +1,55 @@
+<section class="">
+    <div class="container h-100">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="card  text-center col-12 pt-3 px-5">
+                <div *ngIf="autor" class=" shadow-2-strong" style="border-radius: .8rem;">
+                    <h1 class="mb-2">Libros del autor {{autor.nombre}}</h1>
+                    <div class="text-end mb-2">
+                        <button [routerLink]="['/crearLibro',autor.nombre]" type="button" class="btn btn-primary">
+                            <i class="fas fa-plus-circle"></i> Nuevo
+                        </button>
+                    </div>
+                    <div *ngIf="formGroup" class="mb-3">
+                        <form [formGroup]="formGroup">
+                            <input formControlName="bookTitle" type="search" name="bookTitle" id="bookTitle"
+                                class="form-control" placeholder="Buscar">
+                        </form>
+                    </div>
+                    <p-table [value]="libros" dataKey="id" styleClass="p-datatable-customers" [rowHover]="true"
+                        [rows]="10" [showCurrentPageReport]="true" [rowsPerPageOptions]="[10,25,50]" [loading]="loading"
+                        [paginator]="true"
+                        currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
+                        [filterDelay]="0" [globalFilterFields]="['name','country.name','representative.name','status']">
+                        <ng-template pTemplate="header">
+                            <tr>
+                                <th *ngFor="let col of cols">
+                                    {{col.header}}
+                                </th>
+                                <th>
+                                    Acciones
+                                </th>
+                            </tr>
+                        </ng-template>
+                        <ng-template pTemplate="body" let-libro>
+                            <tr [ngClass]="libro.leido?'bg-success bg-opacity-25':''">
+                                <td *ngFor="let col of cols">
+                                    <span *ngIf="col.field=='precio'">$</span>
+                                    {{libro[col.field]}}
+                                </td>
+                                <td style="text-align: center" class="col-1">
+                                    <div class="row">
+                                        <button [routerLink]="['/autor',autor.nombre,'libro',libro.titulo]"
+                                            type="button" class="btn btn-info mx-2 col-5"><i
+                                                class="far fa-edit"></i></button>
+                                        <button (click)="showAlertDelete(libro.titulo)" type="button"
+                                            class="btn btn-danger col-5"><i class="fas fa-trash-alt"></i></button>
+                                    </div>
+                                </td>
+                            </tr>
+                        </ng-template>
+                    </p-table>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
