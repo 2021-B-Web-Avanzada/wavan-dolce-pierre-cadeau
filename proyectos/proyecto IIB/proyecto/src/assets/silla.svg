@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="42" height="49" viewBox="0 0 42 49">
+  <g id="silla" transform="translate(-470 -407)">
+    <g id="Grupo_74" data-name="Grupo 74">
+      <rect id="Rectángulo_20" data-name="Rectángulo 20" width="8" height="8" transform="translate(487 437)" fill="#575f6c"/>
+      <rect id="Rectángulo_21" data-name="Rectángulo 21" width="31" height="32" rx="5" transform="translate(476 407)" fill="#a3d7d5"/>
+      <g id="Grupo_73" data-name="Grupo 73">
+        <g id="Grupo_72" data-name="Grupo 72">
+          <rect id="Rectángulo_18" data-name="Rectángulo 18" width="10" height="27" rx="5" transform="translate(470 414)" fill="#197674"/>
+          <rect id="Rectángulo_19" data-name="Rectángulo 19" width="10" height="27" rx="5" transform="translate(502 414)" fill="#197674"/>
+        </g>
+        <path id="Trazado_2" data-name="Trazado 2" d="M0,0A79.291,79.291,0,0,0,16.934,2.218,66.882,66.882,0,0,0,33,0V6a8,8,0,0,1-8,8H8A8,8,0,0,1,0,6Z" transform="translate(475 442)" fill="#a3d7d5"/>
+      </g>
+    </g>
+    <text id="_01" data-name="01" transform="translate(482 433)" fill="#fff" font-size="18" font-family="SegoeUI, Segoe UI"><tspan x="0" y="0">01</tspan></text>
+  </g>
+</svg>

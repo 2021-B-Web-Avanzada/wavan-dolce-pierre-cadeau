@@ -1,0 +1,98 @@
+<section class="vh-100">
+    <div class="container py-5 h-100">
+        <div class="row d-flex justify-content-center align-items-center h-100 text-center">
+            <h3 class="my-2">Compra de pasajes</h3>
+            <div class="row">
+                <div class="col mb-5">
+                    <div class="row mb-3">
+
+                        <div class="card shadow-2-strong mb-2"
+                            style="border-radius: .5rem; background-image: url('assets/backbus.png'); background-repeat: no-repeat; background-position-x: center; padding: 5px 0; ">
+                            <div>
+                                <app-silla [disabled]="true" [asiento]="{id: -1, numero: -1,'estado':'libre'}">
+                                </app-silla>Libre
+                                <app-silla [disabled]="true" [asiento]="{id: -1, numero: -1,'estado':'seleccionado'}">
+                                </app-silla>Seleccionado
+                                <app-silla [disabled]="true" [asiento]="{id: -1, numero: -1,'estado':'ocupado'}">
+                                </app-silla>Ocupado
+                            </div>
+
+                            <div class="card-body p-3 py-4 text-center">
+                                <div *ngIf="viaje.asientos" class="mt-3">
+                                    <div class="row" *ngFor="let asiento of longitud; let i = index">
+                                        <div class="col"
+                                            *ngFor="let item of viaje.asientos.slice(i*4,i*4+4); let j = index">
+                                            <app-silla [asiento]="viaje.asientos[i*4+j]"
+                                                (click)="contarSeleccionados()">
+                                            </app-silla>
+                                        </div>
+
+                                        <!--<div *ngIf=" i % 4 === 0 " class="row">
+                                            <div class="col text-start">
+                                                <div *ngFor="let item of viaje.asientos.slice(i,i+4); let j=index">
+                                                    <app-silla *ngIf=" j < 2" [id]="item.id" [estado]="item.estado">
+                                                    </app-silla>
+                                                </div>
+                                            </div>
+                                            <div class="col text-end">
+                                                <div *ngFor="let item of viaje.asientos.slice(i,i+4); let j=index">
+                                                    <app-silla *ngIf="j >= 2" [id]="item.id" [estado]="item.estado">
+                                                    </app-silla>
+                                                </div>
+                                            </div>
+                                        </div>-->
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card shadow-2-strong mb-2" style="border-radius: .5rem;">
+                        <div class="card-body p-3 text-center">
+                            <div class="row">
+                                <div class="col text-start">
+                                    <p class="fw-bold">{{viaje.ciudad_origen}} - {{viaje.ciudad_destino}}</p>
+                                    <p>{{nombre_cooperativa}}</p>
+                                    <p>{{viaje.fecha | date : 'short'}}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card shadow-2-strong mb-2" style="border-radius: .5rem;">
+                        <div class="card-body p-3 text-center">
+                            <div class="col">
+                                <div class="col">
+                                    <div class="row mb-3">
+                                        <label for="inputEmail3" class="col-sm-4 col-form-label">Cantidad</label>
+                                        <div class="col-sm-8">
+                                            <input type="number" disabled value="{{seleccionados}}" class="form-control"
+                                                id="inputEmail3">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="row h-100">
+
+                                        <div class="col-sm-6 my-auto text-center">
+                                            <button [routerLink]="['/comprarPasajes']"
+                                                class="btn button-cancel btn-lg btn-block">Cancelar</button>
+                                        </div>
+                                        <div class="col-sm-6 my-auto text-center">
+                                            <button [disabled]="seleccionados<=0"
+                                                [routerLink]="['/pagarAsiento',viaje.id]"
+                                                class="btn button-primary btn-lg btn-block">Pagar</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+</section>

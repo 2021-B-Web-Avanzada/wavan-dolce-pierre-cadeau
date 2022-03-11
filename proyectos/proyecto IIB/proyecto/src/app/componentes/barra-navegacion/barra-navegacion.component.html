@@ -1,0 +1,35 @@
+<nav class="navbar navbar-expand-lg navbar-dark background-primary">
+    <div class="container">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo03"
+            aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <a class="navbar-brand" [routerLink]="['']"><i class="bi bi-diamond-fill"></i> MultiViajes</a>
+        <div class="row collapse navbar-collapse" id="navbarTogglerDemo03">
+            <ul class="justify-content-end navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" [routerLink]="['/comprarPasajes']"><i
+                            class="bi bi-ticket-fill">
+                        </i> Comprar</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link active dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
+                        data-bs-toggle="dropdown" aria-expanded="false"> <img class="me-auto"
+                            style="width: 30px; height: 30px; border-radius: 50%;" [src]="usuario.foto" alt=""
+                            srcset=""> {{usuario.nombre}} {{usuario.apellido}}
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-dark background-primary"
+                        aria-labelledby="navbarDropdownMenuLink">
+                        <li><a class="dropdown-item" [routerLink]="['/perfilUsuario']">Perfil</a></li>
+                        <li><a class="dropdown-item" [routerLink]="['/historialCompras']">Historial de Compras</a></li>
+                        <li><a *ngIf="_authService.isAdmin()" class="dropdown-item"
+                                [routerLink]="['/listarViajes']">Listar Viajes</a></li>
+                        <li><a *ngIf="_authService.isAdmin()" class="dropdown-item"
+                                [routerLink]="['/listarCooperativas']">Listar Cooperativas</a></li>
+                        <li><a (click)="cerrarSesion()" class="dropdown-item" href="#">Cerrar Sesión</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>

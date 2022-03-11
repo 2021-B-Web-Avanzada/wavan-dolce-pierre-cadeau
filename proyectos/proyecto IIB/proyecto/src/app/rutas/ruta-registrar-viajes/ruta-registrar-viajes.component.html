@@ -1,0 +1,102 @@
+<section class="vh-100">
+  <div class="container h-100">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+        <div class="card shadow-2-strong" style="border-radius: .8rem;">
+          <div class="card-body px-5 text-center">
+            <div><i class="bi bi-diamond-fill color-primary" style="font-size: 60px"></i></div>
+            <h3 class="mb-5">Registrar Viaje</h3>
+            <form [formGroup]="formInsertarViaje">
+              <div class="row mb-3">
+                <label for="inputEmail3" class="col-sm-3 col-form-label text-start">Ciudad origen</label>
+                <div class="col-sm-9">
+                  <input formControlName="origen" type="text" class="form-control">
+                </div>
+              </div>
+              <div *ngIf="formInsertarViaje.get('origen')">
+                <div class="alert alert-warning" role="alert" *ngIf="formInsertarViaje.get('origen')?.invalid &&
+                formInsertarViaje.get('origen')?.touched">
+                  <span *ngIf="formInsertarViaje.get('origen')?.hasError('required')">Ciudad de origen requerida</span>
+                </div>
+              </div>
+              <div class="row mb-3">
+                <label for="inputPassword3" class="col-sm-3 col-form-label text-start">Ciudad destino</label>
+                <div class="col-sm-9">
+                  <input type="text" formControlName="destino" class="form-control" id="inputPassword3">
+                </div>
+              </div>
+              <div *ngIf="formInsertarViaje.get('destino')">
+                <div class="alert alert-warning" role="alert" *ngIf="formInsertarViaje.get('destino')?.invalid &&
+                formInsertarViaje.get('destino')?.touched">
+                  <span *ngIf="formInsertarViaje.get('destino')?.hasError('required')">Ciudad de destino
+                    requerida</span>
+                </div>
+              </div>
+              <div class="row mb-3">
+                <label for="inputEmail3" class="col-sm-3 col-form-label text-start">Fecha</label>
+                <div class="col-sm-9">
+                  <input type="datetime-local" formControlName="fecha" class="form-control" id="inputEmail3">
+                </div>
+              </div>
+              <div *ngIf="formInsertarViaje.get('fecha')">
+                <div class="alert alert-warning" role="alert" *ngIf="formInsertarViaje.get('fecha')?.invalid &&
+                formInsertarViaje.get('fecha')?.touched">
+                  <span *ngIf="formInsertarViaje.get('fecha')?.hasError('required')">Fecha requerida</span>
+                </div>
+              </div>
+              <div class="row mb-3">
+                <label for="inputPassword3" class="col-sm-3 col-form-label text-start">Total asientos</label>
+                <div class="col-sm-9">
+                  <input type="number" formControlName="asientos" class="form-control" id="inputPassword3">
+                </div>
+              </div>
+              <div *ngIf="formInsertarViaje.get('asientos')">
+                <div class="alert alert-warning" role="alert" *ngIf="formInsertarViaje.get('asientos')?.invalid &&
+                formInsertarViaje.get('asientos')?.touched">
+                  <span *ngIf="formInsertarViaje.get('asientos')?.hasError('required')">Números de asientos
+                    requerido</span>
+                </div>
+              </div>
+              <div class="row mb-3">
+                <label for="inputPassword3" class="col-sm-3 col-form-label text-start">Precio</label>
+                <div class="col-sm-9">
+                  <input type="number" formControlName="precio" class="form-control" id="inputPassword3">
+                </div>
+              </div>
+              <div *ngIf="formInsertarViaje.get('precio')">
+                <div class="alert alert-warning" role="alert" *ngIf="formInsertarViaje.get('precio')?.invalid &&
+                formInsertarViaje.get('precio')?.touched">
+                  <span *ngIf="formInsertarViaje.get('precio')?.hasError('required')">Precio requerido</span>
+                </div>
+              </div>
+              <div class="row mb-3">
+                <label for="inputPassword3" class="col-sm-3 col-form-label text-start">Cooperativa</label>
+                <div class="col-sm-9">
+                  <select class="form-select" formControlName="cooperativa">
+                    <option *ngFor="let cooperativa of cooperativas" value="{{cooperativa.id}}">
+                      {{cooperativa.nombre_cooperativa}}
+                    </option>
+                  </select>
+                </div>
+              </div>
+              <div *ngIf="formInsertarViaje.get('cooperativa')">
+                <div class="alert alert-warning" role="alert" *ngIf="formInsertarViaje.get('cooperativa')?.invalid &&
+                formInsertarViaje.get('cooperativa')?.touched">
+                  <span *ngIf="formInsertarViaje.get('cooperativa')?.hasError('required')">Cooperativa requerida</span>
+                </div>
+              </div>
+              <div class="row mb-3">
+                <div class="col-sm-6">
+                  <a [routerLink]="['/listarViajes']" class="btn button-cancel">Cancelar</a>
+                </div>
+                <div class="col-sm-6">
+                  <button class="btn button-primary" type="button" (click)="insertarViaje()">Registrar</button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

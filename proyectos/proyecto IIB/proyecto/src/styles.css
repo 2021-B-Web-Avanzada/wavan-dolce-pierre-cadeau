@@ -1,0 +1,35 @@
+.background-primary {
+    background: #126aa3;
+    color: white;
+}
+
+.button-primary {
+    background: #126aa3;
+    color: white;
+    font-weight: 500;
+    min-width: 200px;
+}
+
+.button-primary:hover {
+    background: #2978ab;
+    color: white;
+}
+
+.button-cancel {
+    background: #FF0000;
+    color: white;
+    font-weight: 500;
+    min-width: 200px;       
+}
+
+.button-cancel:hover {
+    background: #FF3232;
+    color: white;
+}
+
+.color-primary {
+    color: #126aa3;
+}
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

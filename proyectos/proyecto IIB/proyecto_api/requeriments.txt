@@ -1,0 +1,6 @@
+pip install djangorestframework
+python -m pip install django-cors-headers
+pip install mysql-connector-python
+pip install mysqlclient
+
+py .\manage.py runserver

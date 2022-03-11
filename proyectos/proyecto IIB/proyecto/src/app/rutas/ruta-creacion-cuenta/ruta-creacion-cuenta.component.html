@@ -1,0 +1,72 @@
+<section class="vh-100">
+    <div class="container h-100">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+                <div class="card shadow-2-strong" style="border-radius: .8rem;">
+                    <form action="#" #userForm="ngForm">
+                        <div class="card-body px-5 text-center">
+                            <div>
+                                <img style="width: 200px; height: 200px; object-fit: cover; border-radius: 50%;"
+                                    [src]="usuario.foto" alt="foto perfil de {{usuario.nombre}}">
+                            </div>
+                            <h2 class="mb-2">Crear Cuenta</h2>
+                            <div class="row mb-3">
+                                <label for="nombre" class="col-sm-3 col-form-label text-start">Nombre</label>
+                                <div class="col-sm-9">
+                                    <input [(ngModel)]="usuario.nombre" #nombre="ngModel" required type="text"
+                                        class="form-control" id="nombre" name="nombre">
+                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                <label for="apellido" class="col-sm-3 col-form-label text-start">Apellido</label>
+                                <div class="col-sm-9">
+                                    <input [(ngModel)]="usuario.apellido" #apellido="ngModel" required type="text"
+                                        class="form-control" id="apellido" name="apellido">
+                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                <label for="correo" class="col-sm-3 col-form-label text-start">Correo</label>
+                                <div class="col-sm-9">
+                                    <input [(ngModel)]="usuario.correo" #correo="ngModel" required type="text"
+                                        class="form-control" id="correo" name="correo">
+                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                <label for="cedula" class="col-sm-3 col-form-label text-start">Cédula</label>
+                                <div class="col-sm-9">
+                                    <input [(ngModel)]="usuario.cedula" #cedula="ngModel" required type="text"
+                                        maxlength="10" minlength="10" class="form-control" id="cedula" name="cedula">
+                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                <label for="password" class="col-sm-3 col-form-label text-start">Contraseña</label>
+                                <div class="col-sm-9">
+                                    <input [(ngModel)]="password" (ngModelChange)="onChangePassword($event)"
+                                        #pass="ngModel" required type="password" class="form-control" minlength="8"
+                                        id="password" name="password">
+                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                <label for="foto" class="col-sm-3 col-form-label text-start">Foto</label>
+                                <div class="col-sm-9">
+                                    <input [(ngModel)]="usuario.foto" #foto="ngModel" required type="text"
+                                        class="form-control" id="foto" minlength="10" name="foto">
+                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                <div class="col-sm-6">
+                                    <a [routerLink]="['/']" class="btn button-cancel">Cancelar</a>
+                                </div>
+                                <div class="col-sm-6">
+                                    <button [disabled]="userForm.invalid" (click)="crearCuenta()"
+                                        class="btn button-primary" type="submit">Crear
+                                        Cuenta</button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

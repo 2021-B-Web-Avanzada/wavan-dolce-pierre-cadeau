@@ -1,0 +1,44 @@
+<section class="vh-100">
+    <div class="container py-5">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="viajed  text-center col-12">
+                <div class=" shadow-2-strong" style="border-radius: .8rem;">
+                    <h2 class="my-2">Historial de Compras</h2>
+                    <p-table [value]="historial" dataKey="id" styleClass="p-datatable-customers" [rowHover]="true"
+                        [rows]="10" [showCurrentPageReport]="true" [rowsPerPageOptions]="[10,25,50]" [loading]="loading"
+                        [paginator]="true"
+                        currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
+                        [filterDelay]="0" [globalFilterFields]="['name','country.name','representative.name','status']">
+                        <ng-template pTemplate="header">
+                            <tr>
+                                <th *ngFor="let col of cols">
+                                    {{col.header}}
+                                </th>
+                                <th>
+                                    Viaje
+                                </th>
+                                <th>
+                                    Acciones
+                                </th>
+                            </tr>
+                        </ng-template>
+                        <ng-template pTemplate="body" let-viaje>
+                            <tr>
+                                <td *ngFor="let col of cols">
+                                    {{viaje[col.field]}}
+                                </td>
+                                <td>
+                                    {{obtnerNombreViaje(viaje['viaje'])}}
+                                </td>
+                                <td style="text-align: center">
+                                    <button (click)="abrirModal(viaje)" type="button" class="btn background-primary"><i
+                                            class="bi bi-qr-code"></i></button>
+                                </td>
+                            </tr>
+                        </ng-template>
+                    </p-table>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

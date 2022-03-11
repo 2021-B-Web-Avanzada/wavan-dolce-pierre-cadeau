@@ -1,0 +1,39 @@
+<section class="vh-100">
+    <div class="container py-5">
+        <div class="row d-flex justify-content-center align-items-center h-100 text-center">
+            <h2 class="my-2">Compra de pasajes</h2>
+            <div class="row">
+                <div class="col">
+                    <div class="row mb-3">
+                        <label for="ciudadOrigen" class="col-sm-3 col-form-label text-start">Origen</label>
+                        <div class="col-sm-9">
+                            <input [(ngModel)]="ciudadOrigen" (ngModelChange)="onChangeOrigen($event)" type="text"
+                                class="form-control" id="ciudadOrigen">
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="row mb-3">
+                        <label for="ciudadDestino" class="col-sm-3 col-form-label text-start">Destino</label>
+                        <div class="col-sm-9">
+                            <input [(ngModel)]="ciudadDestino" (ngModelChange)="onChangeDestino($event)" type="text" class="form-control" id="ciudadDestino">
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="row mb-3">
+                        <label for="fechaViaje" class="col-sm-3 col-form-label text-start">Fecha</label>
+                        <div class="col-sm-9">
+                            <input [(ngModel)]="fechaViaje" (ngModelChange)="onChangeFecha($event)" type="date" class="form-control" id="fechaViaje">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col pb-5">
+                <app-tarjeta-viaje *ngFor="let v of viajes" [viaje]=v></app-tarjeta-viaje>
+
+            </div>
+        </div>
+    </div>
+</section>

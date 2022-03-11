@@ -1,0 +1,73 @@
+<section class="vh-100">
+  <div class="container h-100">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+        <div class="card shadow-2-strong" style="border-radius: .8rem;">
+          <div class="card-body px-5 text-center">
+            <div><i class="bi bi-diamond-fill color-primary" style="font-size: 60px"></i></div>
+            <h3 class="mb-5">Actualizar Cooperativa</h3>
+            <form [formGroup]="formActualizarCooperativa">
+              <div class="row mb-3">
+                <label for="inputEmail3" class="col-sm-3 col-form-label text-start">Nombre</label>
+                <div class="col-sm-9">
+                  <input formControlName="nombre" type="text" class="form-control" id="inputEmail3">
+                </div>
+              </div>
+              <div *ngIf="formActualizarCooperativa.get('nombre')">
+                <div class="alert alert-warning" role="alert" *ngIf="formActualizarCooperativa.get('nombre')?.invalid &&
+                formActualizarCooperativa.get('nombre')?.touched">
+                  <span *ngIf="formActualizarCooperativa.get('nombre')?.hasError('required')">Nombre requerido</span>
+                </div>
+              </div>
+              <div class="row mb-3">
+                <label for="inputPassword3" class="col-sm-3 col-form-label text-start">Teléfono</label>
+                <div class="col-sm-9">
+                  <input type="number" formControlName="telefono" class="form-control" id="inputPassword3">
+                </div>
+              </div>
+              <div *ngIf="formActualizarCooperativa.get('telefono')">
+                <div class="alert alert-warning" role="alert" *ngIf="formActualizarCooperativa.get('telefono')?.invalid &&
+                formActualizarCooperativa.get('telefono')?.touched">
+                  <span *ngIf="formActualizarCooperativa.get('telefono')?.hasError('required')">Teléfono requerido</span>
+                </div>
+              </div>
+              <div class="row mb-3">
+                <label for="inputEmail3" class="col-sm-3 col-form-label text-start">Ciudad matriz</label>
+                <div class="col-sm-9">
+                  <input type="text" formControlName="ciudad_matriz" class="form-control" id="inputEmail3">
+                </div>
+              </div>
+              <div *ngIf="formActualizarCooperativa.get('ciudad_matriz')">
+                <div class="alert alert-warning" role="alert" *ngIf="formActualizarCooperativa.get('ciudad_matriz')?.invalid &&
+                formActualizarCooperativa.get('ciudad_matriz')?.touched">
+                  <span *ngIf="formActualizarCooperativa.get('ciudad_matriz')?.hasError('required')">Ciudad de la matriz requerida</span>
+                </div>
+              </div>
+              <div class="row mb-3">
+                <label for="inputPassword3" class="col-sm-3 col-form-label text-start">Dirección matriz</label>
+                <div class="col-sm-9">
+                  <input type="text" formControlName="direccion_matriz" class="form-control" id="inputPassword3">
+                </div>
+              </div>
+              <div *ngIf="formActualizarCooperativa.get('direccion_matriz')">
+                <div class="alert alert-warning" role="alert" *ngIf="formActualizarCooperativa.get('direccion_matriz')?.invalid &&
+                formActualizarCooperativa.get('direccion_matriz')?.touched">
+                  <span *ngIf="formActualizarCooperativa.get('direccion_matriz')?.hasError('required')">Dirección de la matriz requerida</span>
+                </div>
+              </div>
+              <div class="row mb-3">
+                <div class="col-sm-6">
+                  <a [routerLink]="['/listarCooperativas']" class="btn button-cancel" >Cancelar</a>
+                </div>
+                <div class="col-sm-6">
+                  <button class="btn button-primary" (click)="insertarCooperativa()" type="submit">Actualizar</button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+

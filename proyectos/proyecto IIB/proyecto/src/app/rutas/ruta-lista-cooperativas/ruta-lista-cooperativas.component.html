@@ -1,0 +1,53 @@
+<section class="vh-100">
+  <div class="container py-5 h-100">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="card  text-center col-12">
+        <div class=" shadow-2-strong" style="border-radius: .8rem;">
+          <h1 class="mb-2">Lista de Cooperativas</h1>
+          <p-table #dt1 [value]="cooperativas" dataKey="id"
+                   [rows]="10" [showCurrentPageReport]="true" [rowsPerPageOptions]="[10,25,50]"
+                   styleClass="p-datatable-gridlines"
+                   [paginator]="true"
+                   currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
+                   [globalFilterFields]="['id','nombre_cooperativa','telefono','ciudad_matriz','direccion_matriz']">
+            <ng-template pTemplate="caption">
+              <form [formGroup]="formGroup">
+                <div class="d-flex">
+                  <button type="button" class="btn btn-success" (click)="insertarCooperativa()"><i class="bi bi-plus-circle"></i> Insertar</button>
+                  <span class="p-input-icon-right ms-auto">
+                    <div class="input-group">
+                      <input type="text" formControlName="buscar" class="form-control" placeholder="Buscar" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                      <button pButton class="input-group-text" (click)="buscar()"><i class="bi bi-search"></i></button>
+                    </div>
+                  </span>
+                </div>
+              </form>
+            </ng-template>
+            <ng-template pTemplate="header">
+              <tr>
+                <th>Id</th>
+                <th>Nombre</th>
+                <th>Teléfono</th>
+                <th>Ciudad de la matriz</th>
+                <th>Dirección de la matriz</th>
+                <th>Acciones</th>
+              </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-arreglo>
+              <tr>
+                <td>{{arreglo.id}}</td>
+                <td>{{arreglo.nombre_cooperativa}}</td>
+                <td>{{arreglo.telefono}}</td>
+                <td>{{arreglo.ciudad_matriz}}</td>
+                <td>{{arreglo.direccion_matriz}}</td>
+                <td class="text-center">
+                  <button (click)="actualizarCooperativa(arreglo.id)" class="btn btn-primary"><i class="bi bi-pencil-square"></i> Editar</button>
+                </td>
+              </tr>
+            </ng-template>
+          </p-table>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
