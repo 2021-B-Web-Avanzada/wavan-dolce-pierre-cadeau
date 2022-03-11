@@ -1,0 +1,47 @@
+<div class="{{paso?'':'toast'}} align-items-center text-white bg-warning border-0 position-fixed rounded end-0" role="alert"
+    aria-live="assertive" aria-atomic="true">
+    <div class="d-flex">
+        <div class="toast-body">
+            {{pasoMessage}}
+        </div>
+        <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"
+            aria-label="Close"></button>
+    </div>
+</div>
+
+<div class="container my-2">
+    <div class="col text-center">
+        <button (click)="retirarPiezas()" class="btn btn-primary">Obtener piezas</button>
+    </div>
+</div>
+<div class="container" cdkDropListGroup>
+    <div class="text-center">
+        <h1 class="my-2" style="font-weight: bold; color: white;">{{nombre2}}</h1>
+        <div cdkDropListOrientation="horizontal" class="example-list p-3 justify-content-center">
+            <div *ngFor="let item of jugador2" [innerHTML]="item.codigo">
+            </div>
+        </div>
+    </div>
+    <div class="my-1">
+        <div cdkDropListOrientation="horizontal" cdkDropList [cdkDropListData]="mesa"
+            class="example-list p-3 justify-content-center" (cdkDropListDropped)="drop($event)">
+            <div *ngFor="let item of mesa" cdkDrag [cdkDragDisabled]="true" [innerHTML]="item.codigo">
+            </div>
+        </div>
+    </div>
+
+    <div class="text-center">
+        <div cdkDropListOrientation="horizontal" cdkDropList [cdkDropListData]="jugador1"
+            class="example-list p-3 justify-content-center" (cdkDropListDropped)="drop($event)">
+            <div *ngFor="let item of jugador1" cdkDrag [innerHTML]="item.codigo">
+            </div>
+        </div>
+
+        <h1 class="my-2" style="font-weight: bold; color: white;">{{nombre1}}</h1>
+    </div>
+</div>
+<div class="container my-2">
+    <div class=" d-grid gap-2 text-center col-6 mx-auto">
+        <button (click)="enviarPaso()" class="btn btn-dark btn-lg">Paso</button>
+    </div>
+</div>

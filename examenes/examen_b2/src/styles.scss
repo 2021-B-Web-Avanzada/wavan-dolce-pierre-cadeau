@@ -1,0 +1,578 @@
+/* You can add global styles to this file, and also import other style files */
+body {
+	background-image: url('assets/img/fondo.jpg');
+	background-size: cover;
+}
+
+a:link {
+	color: white;
+}
+
+a:visited {
+	color: white;
+}
+
+a:hover {
+	color: gold;
+}
+
+a:active {
+	color: gold;
+}
+
+.title {
+	text-align: center;
+	width: 400px;
+	height: 100px;
+	margin: 0 auto;
+	color: black;
+	text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.5), -1px -1px 1px rgba(0, 0, 0, 0.7);
+}
+
+h1 {
+	font-size: 3em;
+	font-family: "Lobster", cursive;
+}
+
+p {
+	font-size: 2em;
+	font-family: "Special Elite", cursive;
+}
+
+#container {
+	display: inline;
+	margin: 0 auto;
+	width: 700px;
+}
+
+
+.dominoButton {
+    z-index: 9;
+    float: left;
+    width: 8em;
+    height: 4em;
+    position: relative;
+    border-radius: 0.6em;
+    box-shadow: 0.1em 0.1em 0em 0.1em #333;
+	color: white;
+	font-size: 30px;
+	font-weight: 500;
+}
+.dominoButton,
+.dominoButton span {
+	background-color: #000;
+}
+
+.domino,
+.domino span {
+	background-color: #000;
+}
+
+.domino {
+	z-index: 9;
+	float: left;
+	font-size: 10px;
+	width: 12em;
+	height: 6em;
+	position: relative;
+	border-radius: 0.8em;
+	box-shadow: 0.3em 0.3em 0em 0.2em #333;
+}
+
+.domino .line {
+	width: 0.2em;
+	height: 5.5em;
+	position: absolute;
+	top: 0.25em;
+	left: 5.7em;
+	background-color: #fff;
+}
+
+.domino .TR23456 {
+	width: 1.2em;
+	height: 1.2em;
+	position: absolute;
+	top: 4em;
+	left: 4em;
+	border-radius: 4em;
+	background-color: #fff;
+}
+
+.domino .TL456 {
+	width: 1.2em;
+	height: 1.2em;
+	position: absolute;
+	top: 4em;
+	left: 1em;
+	-webkit-border-radius: 4em;
+	-moz-border-radius: 4em;
+	border-radius: 4em;
+	background-color: #fff;
+}
+
+.domino .TL23456 {
+	width: 1.2em;
+	height: 1.2em;
+	position: absolute;
+	top: 0.8em;
+	left: 1em;
+	border-radius: 4em;
+	background-color: #fff;
+}
+
+.domino .BR23456 {
+	width: 1.2em;
+	height: 1.2em;
+	position: absolute;
+	top: 0.8em;
+	left: 6.5em;
+	border-radius: 4em;
+	background-color: #fff;
+}
+
+.domino .BL456 {
+	width: 1.2em;
+	height: 1.2em;
+	position: absolute;
+	top: 4em;
+	left: 6.5em;
+	border-radius: 4em;
+	background-color: #fff;
+}
+
+.domino .BR6 {
+	width: 1.2em;
+	height: 1.2em;
+	position: absolute;
+	top: 0.8em;
+	left: 8.2em;
+	border-radius: 4em;
+	background-color: #fff;
+}
+
+.domino .BL6 {
+	width: 1.2em;
+	height: 1.2em;
+	position: absolute;
+	top: 4em;
+	left: 8.2em;
+	border-radius: 4em;
+	background-color: #fff;
+}
+
+.domino .BR456 {
+	width: 1.2em;
+	height: 1.2em;
+	position: absolute;
+	top: 0.8em;
+	left: 10em;
+	border-radius: 4em;
+	background-color: #fff;
+}
+.domino .TR456 {
+	width: 1.2em;
+	height: 1.2em;
+	position: absolute;
+	top: .8em;
+	left: 4em;
+	-webkit-border-radius: 4em;
+	-moz-border-radius: 4em;
+	border-radius: 4em;
+	background-color: #fff;
+}
+
+.domino .BL23456 {
+	width: 1.2em;
+	height: 1.2em;
+	position: absolute;
+	top: 4em;
+	left: 10em;
+	border-radius: 4em;
+	background-color: #fff;
+}
+.domino .TC135 {
+	width: 1.2em;
+	height: 1.2em;
+	position: absolute;
+	top: 2.4em;
+	left: 2.5em;
+	-webkit-border-radius: 4em;
+	-moz-border-radius: 4em;
+	border-radius: 4em;
+	background-color: #fff;
+}
+
+.domino .BC135 {
+	width: 1.2em;
+	height: 1.2em;
+	position: absolute;
+	top: 2.5em;
+    left: 8.5em;
+	-webkit-border-radius: 4em;
+	-moz-border-radius: 4em;
+	border-radius: 4em;
+	background-color: #fff;
+}
+
+/*oooooooooooooooooo*/
+
+#mydiv {
+	position: absolute;
+	z-index: 9;
+	text-align: center;
+}
+
+#mydivheader {
+	cursor: move;
+}
+
+.dragable {
+	position: absolute;
+	z-index: 9;
+	text-align: center;
+	cursor: move;
+}
+
+.horizontalI {
+	transform: rotate(90deg);
+	transform: rotateY(145deg);
+}
+
+.horizontalD {
+	transform: rotate(-90deg);
+}
+
+html,
+body {
+	height: 100%;
+}
+body {
+	margin: 0;
+	font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.example-list {
+	max-width: 100%;
+	border: solid 1px #ccc;
+	min-height: 60px;
+	display: flex;
+	flex-direction: row;
+	background: white;
+	border-radius: 4px;
+	overflow: hidden;
+}
+
+.example-box {
+	padding: 20px 10px;
+	border-right: solid 1px #ccc;
+	color: rgba(0, 0, 0, 0.87);
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: space-between;
+	box-sizing: border-box;
+	cursor: move;
+	background: white;
+	font-size: 14px;
+	flex-grow: 1;
+	flex-basis: 0;
+}
+
+.cdk-drag-preview {
+	box-sizing: border-box;
+	border-radius: 4px;
+	box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2), 0 8px 10px 1px rgba(0, 0, 0, 0.14),
+		0 3px 14px 2px rgba(0, 0, 0, 0.12);
+}
+
+.cdk-drag-placeholder {
+	opacity: 0;
+}
+
+.cdk-drag-animating {
+	transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+}
+
+.example-box:last-child {
+	border: none;
+}
+
+.example-list.cdk-drop-list-dragging .example-box:not(.cdk-drag-placeholder) {
+	transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+}
+
+.fixed-top,
+.fixed-bottom {
+	z-index: 0 !important;
+}
+
+.carta-box {
+	//width: 180px;
+	//height: 100px;
+	width: 125px;
+	height: 125px;
+	position: relative;
+	perspective: 1000px;
+	margin-top: 25%;
+}
+/*
+.carta-box:hover .carta {
+	transform: rotateY(180deg) translate(50%);
+}*/
+
+.reversoPieza {
+	transform: rotateY(180deg) translate(50%);
+}
+
+.carta {
+	transform-style: preserve-3d !important;
+	transition: all 1s linear !important;
+}
+
+.cara {
+	position: absolute;
+	backface-visibility: hidden;
+}
+
+.cara.detras {
+	transform: rotateY(180deg);
+}
+
+
+
+//Domino doble
+.dominoDoble {
+    z-index: 9;
+	float: left;
+	font-size: 10px;
+	width: 6em;
+	height: 12em;
+	position: relative;
+	-webkit-border-radius: .8em;
+	-moz-border-radius: .8em;
+	border-radius: .8em;
+	-moz-box-shadow:    .3em .3em 0em .2em #333;
+	-webkit-box-shadow: .3em .3em 0em .2em #333;
+	box-shadow:         .3em .3em 0em .2em #333;
+ }
+
+ .dominoDoble2 {
+	float: left;
+	font-size: 10px;
+	width: 12em;
+	height: 6em;
+	margin: 40px;
+	position: relative;
+	-webkit-border-radius: .8em;
+	-moz-border-radius: .8em;
+	border-radius: .8em;
+	-moz-box-shadow:    .3em .3em 0em .2em #333;
+	-webkit-box-shadow: .3em .3em 0em .2em #333;
+	box-shadow:         .3em .3em 0em .2em #333;
+	background-color:#000
+ }
+
+.dominoDoble, .dominoDoble span { 
+	background-color:#000
+}
+
+
+
+.dominoDoble .line {
+	width: 5.5em;
+	height: .2em;
+	position: absolute;
+	top: 5.7em;
+	left: .25em;
+	background-color: #fff;
+}
+
+.dominoDoble .vline {
+	width: .2em;
+	height: 5.5em;
+	position: absolute;
+	top: .25em;
+	left: 5.7em;
+
+	background-color: #fff;
+}
+ 
+ .dominoDoble .TL6 {
+	width: 1.2em;
+	height: 1.2em;
+	position: absolute;
+	top: 2.4em;
+	left: 1.0em;
+	-webkit-border-radius: 4em;
+	-moz-border-radius: 4em;
+	border-radius: 4em;
+	background-color: #fff;
+ }
+ 
+ .dominoDoble .TL456 {
+	width: 1.2em;
+	height: 1.2em;
+	position: absolute;
+	top: 0.8em;
+	left: 1.0em;
+	-webkit-border-radius: 4em;
+	-moz-border-radius: 4em;
+	border-radius: 4em;
+	background-color: #fff;
+  }
+ 
+  .dominoDoble .TL23456 {
+	width: 1.2em;
+	height: 1.2em;
+	position: absolute;
+	top: 4.0em;
+	left: 1.0em;
+	-webkit-border-radius: 4em;
+	-moz-border-radius: 4em;
+	border-radius: 4em;
+	background-color: #fff;
+ }
+ 
+  .dominoDoble .TC135 {
+	width: 1.2em;
+	height: 1.2em;
+	position: absolute;
+	top: 2.4em;
+	left: 2.5em;
+	-webkit-border-radius: 4em;
+	-moz-border-radius: 4em;
+	border-radius: 4em;
+	background-color: #fff;
+ }
+ 
+  .dominoDoble .TR6 {
+	width: 1.2em;
+	height: 1.2em;
+	position: absolute;
+	top: 2.4em;
+	left: 4.0em;
+	-webkit-border-radius: 4em;
+	-moz-border-radius: 4em;
+	border-radius: 4em;
+	background-color: #fff;
+ }
+ 
+   .dominoDoble .TR456 {
+	width: 1.2em;
+	height: 1.2em;
+	position: absolute;
+	top: 4.0em;
+	left: 4.0em;
+	-webkit-border-radius: 4em;
+	-moz-border-radius: 4em;
+	border-radius: 4em;
+	background-color: #fff;
+ }
+ 
+   .dominoDoble .TR23456 {
+	width: 1.2em;
+	height: 1.2em;
+	position: absolute;
+	top: 0.8em;
+	left: 4.0em;
+	-webkit-border-radius: 4em;
+	-moz-border-radius: 4em;
+	border-radius: 4em;
+	background-color: #fff;
+ }
+ 
+  .dominoDoble .BL6 {
+	width: 1.2em;
+	height: 1.2em;
+	position: absolute;
+	top: 8.0em;
+	left: 1.0em;
+	-webkit-border-radius: 4em;
+	-moz-border-radius: 4em;
+	border-radius: 4em;
+	background-color: #fff;
+ }
+ 
+  .dominoDoble .BL456 {
+	width: 1.2em;
+	height: 1.2em;
+	position: absolute;
+	top: 6.4em;
+	left: 1.0em;
+	-webkit-border-radius: 4em;
+	-moz-border-radius: 4em;
+	border-radius: 4em;
+	background-color: #fff;
+  }
+   
+  .dominoDoble .BL23456 {
+	width: 1.2em;
+	height: 1.2em;
+	position: absolute;
+	top: 9.6em;
+	left: 1.0em;
+	-webkit-border-radius: 4em;
+	-moz-border-radius: 4em;
+	border-radius: 4em;
+	background-color: #fff;
+ }
+ 
+ .dominoDoble .BC135 {
+	width: 1.2em;
+	height: 1.2em;
+	position: absolute;
+	top: 8.0em;
+	left: 2.5em;
+	-webkit-border-radius: 4em;
+	-moz-border-radius: 4em;
+	border-radius: 4em;
+	background-color: #fff;
+ }
+ 
+ .dominoDoble .BR6 {
+	width: 1.2em;
+	height: 1.2em;
+	position: absolute;
+	top: 8.0em;
+	left: 4.0em;
+	-webkit-border-radius: 4em;
+	-moz-border-radius: 4em;
+	border-radius: 4em;
+	background-color: #fff;
+ }
+ 
+  .dominoDoble .BR456 {
+	width: 1.2em;
+	height: 1.2em;
+	position: absolute;
+	top: 9.6em;
+	left: 4.0em;
+	-webkit-border-radius: 4em;
+	-moz-border-radius: 4em;
+	border-radius: 4em;
+	background-color: #fff;
+ }
+ 
+  .dominoDoble .BR23456 {
+	width: 1.2em;
+	height: 1.2em;
+	position: absolute;
+	top: 6.4em;
+	left: 4.0em;
+	-webkit-border-radius: 4em;
+	-moz-border-radius: 4em;
+	border-radius: 4em;
+	background-color: #fff;
+ } 
+
+ .carta-boxV {
+	width: 65px;
+	height: 125px;
+	position: relative;
+	perspective: 1000px;
+}
+
+.piezaGirada{
+	transform: rotateY(180deg) translate(-2%);
+}
+
